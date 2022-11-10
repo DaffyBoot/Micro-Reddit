@@ -10,11 +10,11 @@ Faker::UniqueGenerator.clear
 account_list = []
 postslist = []
 
-100.times do |n|
+50.times do |n|
 	a = Author.create!(
 		username: Faker::Internet.username,
-		email: Faker::Internet.email,
-		password_digest: "admin"
+		email: Faker::Internet.free_email,
+		password: "admin"
 	)
 	account_list << a
 	p = nil
@@ -37,3 +37,9 @@ postslist.each do |po|
 		end
 	end
 end
+
+Author.create!(
+	username: "admin",
+	email: Faker::Internet.free_email,
+	password: "admin"
+)

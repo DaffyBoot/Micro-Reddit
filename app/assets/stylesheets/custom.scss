@@ -23,6 +23,29 @@ body{
 	color: $white;
 }
 
+.login{
+	position: absolute;
+	right: 0px;
+	display: flex;
+	width: fit-content;
+	a{
+		margin: 10px;
+		padding: 1px 4px;
+		border: 1px solid $white;
+		border-radius: 3px;
+		font-weight: bold;
+		color: $white;
+	}
+	a:hover{
+		background: invert($black);
+		color: invert($white);
+	}
+	a:active{
+		background: $black;
+		color: $white;
+	}
+}
+
 .info{
 	font-family: sans-serif;
 	float: left;
@@ -101,6 +124,11 @@ body{
 				p{
 					float: inherit;
 					overflow-wrap: anywhere;
+					a{ 
+						padding: 0;
+						color: white;
+						font-weight: bold;
+					}
 				}
 				.ml{
 					float: left;
@@ -116,4 +144,43 @@ body{
   			}
   		}
   	}
+
+}
+
+.post{
+	min-height: 100vh;
+	width: 100%;
+	.i{
+		float: left;
+		width: 100%;
+		.s{
+			width: 100%;
+		}
+		.t{
+			float: left;
+			width: calc(100% - 60px);
+			a{
+				float:left;
+  				font-size: 0.666rem;
+  				width: fit-content;
+  				h2{
+  					color: white;
+  				}
+  			}	
+		}
+	}
+	.u{
+		background: #0a0a0a;
+		border: 1px solid gray;
+		unicode-bidi: isolate;
+		border-radius:7px;
+		padding: 5px 10px;
+		margin: 10px auto 5px 60px;
+		font-size: 0.84rem;
+		max-width: 60em;
+		word-wrap: break-word;
+		float: left;
+		width: calc(100% - 100px);
+		color: white;
+	}
 }

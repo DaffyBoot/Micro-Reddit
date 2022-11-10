@@ -12,6 +12,9 @@ class AuthorsController < ApplicationController
 
   # GET /authors/new
   def new
+    if current_user
+      redirect_to root_path
+    end
     @author = Author.new
   end
 

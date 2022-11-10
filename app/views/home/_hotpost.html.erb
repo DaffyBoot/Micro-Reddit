@@ -9,13 +9,13 @@
 		</svg>
 	</div>
 	<div class="i">
-		<%= link_to root_path do %>
+		<%= link_to post do %>
 			<%= image_tag "https://picsum.photos/seed/#{post.id + post.title.length}/#{rand(100..200)}/#{rand(100..200)}" %>
 		<% end %>
 	</div>
 	<div class="e">
 		<div class="t">
-			<%= link_to root_path do %>
+			<%= link_to post do %>
 				<h2>
 					<%= post.title %>
 				</h2>
@@ -23,10 +23,10 @@
 		</div>
 		<div class="m">
 			<p>
-				submitted <%=time_ago_in_words(post.created_at) %> ago by <%= post.author.username %> 
+				submitted <%=time_ago_in_words(post.created_at) %> ago by <span><%= link_to "#{post.author.username}", post.author %></span> 
 			</p>
 			<div class="ml">
-				<%= link_to "#{post.comments.length} comments", root_path %>
+				<%= link_to "#{post.comments.length} comments", post%>
 			</div>
 		</div>
 	</div>

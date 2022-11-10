@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.all.limit(25)
+    @posts = Post.order(:created_at => "desc").limit(25)
   end
 end
