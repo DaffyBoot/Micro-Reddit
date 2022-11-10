@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_08_083212) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_10_021904) do
   create_table "authors", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -20,12 +20,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_083212) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.integer "authors_id", null: false
+    t.integer "author_id", null: false
     t.integer "post_id", null: false
+    t.text "comment_text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "comment_text"
-    t.index ["authors_id"], name: "index_comments_on_authors_id"
+    t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_08_083212) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
-  add_foreign_key "comments", "authors", column: "authors_id"
+  add_foreign_key "comments", "authors"
   add_foreign_key "comments", "posts"
   add_foreign_key "posts", "authors"
 end

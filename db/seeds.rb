@@ -7,23 +7,33 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "faker"
 Faker::UniqueGenerator.clear
-
-author_list = []
+account_list = []
+postslist = []
 
 100.times do |n|
 	a = Author.create!(
-			username: Faker::Internet.username,
-			email: Faker::Internet.email,
-			password_digest: "admin"
+		username: Faker::Internet.username,
+		email: Faker::Internet.email,
+		password_digest: "admin"
+	)
+	account_list << a
+	p = nil
+	if(Faker::Boolean.boolean)
+		p = Post.create!(
+			title: Faker::Quotes::Shakespeare.hamlet_quote,
+			body: Faker::Movie.quote,
+			author_id: a.id
 		)
-	author_list << a
-	3.times do |n2|
-		if(Faker::Boolean.boolean)
-			Post.create!(
-				title: Faker::Lorem.words(number: rand(2..20)).join(" "),
-				body: Faker::Lorem.paragraph(sentence_count: rand(2..20)),
-				author_id: a.id
-			)
+	end
+	postslist << p if p.present?
+end
+postslist.each do |po|
+	account_list.each do |acc|
+		if ((po.author != acc) && (rand(1..6) == 6))
+			Comment.create!(
+				author_id: acc.id,
+				post_id: po.id,
+				comment_text: Faker::Movie.quote)
 		end
 	end
 end

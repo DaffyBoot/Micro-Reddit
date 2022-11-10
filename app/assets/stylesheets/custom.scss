@@ -6,6 +6,12 @@ $white : #cacaca;
   	margin: 0;
   	font-family: sans-serif;
 }
+a{
+	text-decoration: none;
+}
+div{
+	width: fit-content;
+}
 
 head, body{
 	width: 100%;
@@ -39,7 +45,6 @@ body{
 			border: 1px solid $white;
 			border-radius: 3px;
 			font-weight: bold;
-			text-decoration: none;
 			color: $white;
   		}
   	}
@@ -82,11 +87,32 @@ body{
   			.t a{
   				font-size: 0.8rem;
   				overflow-wrap: anywhere;
-  				text-decoration: none;
   				width: fit-content;
   				h2{
-  					color: $white;
+  					color: white;
   				}
+  			}
+  			.m{
+  				float: left;
+				width: 100%;
+				color: $white;
+				font-size: x-small;
+				margin-top: 2px;
+				p{
+					float: inherit;
+					overflow-wrap: anywhere;
+				}
+				.ml{
+					float: left;
+					width: 100%;
+					margin-top: 1px;
+					a{
+						padding: 0;
+						color: white;
+						font-weight: bold;
+						margin: 0px 15px 0px 0px;
+					}
+				}
   			}
   		}
   	}

@@ -10,7 +10,7 @@
 	</div>
 	<div class="i">
 		<%= link_to root_path do %>
-			<%= image_tag "https://picsum.photos/seed/#{post.id}/#{rand(100..200)}/#{rand(100..200)}" %>
+			<%= image_tag "https://picsum.photos/seed/#{post.id + post.title.length}/#{rand(100..200)}/#{rand(100..200)}" %>
 		<% end %>
 	</div>
 	<div class="e">
@@ -20,6 +20,14 @@
 					<%= post.title %>
 				</h2>
 			<% end %>
+		</div>
+		<div class="m">
+			<p>
+				submitted <%=time_ago_in_words(post.created_at) %> ago by <%= post.author.username %> 
+			</p>
+			<div class="ml">
+				<%= link_to "#{post.comments.length} comments", root_path %>
+			</div>
 		</div>
 	</div>
 </div>
