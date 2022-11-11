@@ -1,12 +1,65 @@
-<div id="<%= dom_id author %>">
-  <p>
-    <strong>Username:</strong>
-    <%= author.username %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= author.email %>
-  </p>
-
+<div class="author">
+  <div class="en">
+    <% if author.posts.present? %>
+      <h2>Posts</h2>
+      <% author.posts.each do |post| %>
+        <%= render "home/hotpost",post: post %>
+      <% end %>
+    <% end %>
+    <% if author.comments.present? %>
+      <h2>Comments</h2>
+      <% author.comments.each do |comment| %>
+        <div class="com">
+          <div class="meta">
+            <p>
+              <%= link_to "#{comment.post.title}", comment.post %> by <%= link_to "#{comment.post.author.username}", comment.post.author %>
+            </p>
+          </div>
+          <div class="comment">
+            <div class="comment-m">
+              <p>
+                <%= link_to "#{comment.author.username}", comment.author %> <%=time_ago_in_words(comment.created_at) %> ago
+              </p>
+            </div>
+            <div class="comment-b">
+              <div class="comment-b-md">
+                <p>
+                  <%= comment.comment_text %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="in">
+    <h1>
+      <%= author.username %>
+    </h1>
+    <p>
+      <span>
+        <%= author.posts.count %>
+      </span>
+      <% if author.posts.count > 1 %>
+        <%= "post".pluralize %>
+      <% else %>
+        post
+      <% end %>
+    </p>
+    <p>
+      <span>
+        <%= author.comments.count %>
+      </span>
+      <% if author.comments.count > 1 %>
+        <%= "comment".pluralize %>
+      <% else %>
+        comment
+      <% end %>
+    </p>
+    <br>
+    <p>
+      account created: <%= author.created_at.to_date.to_s %>
+    </p>
+  </div>
 </div>

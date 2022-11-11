@@ -3,7 +3,7 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
-    @authors = Author.all
+    redirect_to root_path
   end
 
   # GET /authors/1 or /authors/1.json
@@ -28,6 +28,7 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save
+        session[:user_id] = @author.id
         format.html { redirect_to author_url(@author), notice: "Author was successfully created." }
         format.json { render :show, status: :created, location: @author }
       else

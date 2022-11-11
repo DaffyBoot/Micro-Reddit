@@ -8,13 +8,13 @@
 		    <path fill="currentColor" d="M10,4H14V13L17.5,9.5L19.92,11.92L12,19.84L4.08,11.92L6.5,9.5L10,13V4Z" />
 		</svg>
 	</div>
-	<% if current_page?(root_path)%>
-		<div class="i">
+	<div class="i">
+		<% if (current_page?(root_path) || current_page?(author_path))%>
 			<%= link_to post do %>
 				<%= image_tag "https://picsum.photos/seed/#{post.id + post.title.length}/#{rand(100..200)}/#{rand(100..200)}" %>
 			<% end %>
-		</div>
-	<% end %>
+		<% end %>	
+	</div>
 	<div class="e">
 		<div class="t">
 			<%= link_to post do %>
@@ -25,9 +25,12 @@
 		</div>
 		<div class="m">
 			<p>
-				submitted <%=time_ago_in_words(post.created_at) %> ago by <span><%= link_to "#{post.author.username}", post.author %></span> 
+				submitted <%=time_ago_in_words(post.created_at) %> ago 
+				<% if current_page?(root_path) %>
+					by <span><%= link_to "#{post.author.username}", post.author %></span> 
+				<% end %>
 			</p>
-			<% if current_page?(root_path)%>
+			<% if (current_page?(root_path) || current_page?(author_path))%>
 				<div class="ml">
 					<%= link_to "#{post.comments.length} comments", post%>
 				</div>
