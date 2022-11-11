@@ -11,9 +11,10 @@ account_list = []
 postslist = []
 
 50.times do |n|
+	randUser = Faker::Internet.username
 	a = Author.create!(
-		username: Faker::Internet.username,
-		email: Faker::Internet.free_email,
+		username: randUser,
+		email: randUser+"@"+Faker::Internet.domain_name,
 		password: "admin"
 	)
 	account_list << a
@@ -42,4 +43,4 @@ Author.create!(
 	username: "admin",
 	email: Faker::Internet.free_email,
 	password: "admin"
-)
+)	
