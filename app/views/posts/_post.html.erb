@@ -1,17 +1,37 @@
-<div class="post">
+<div class="posts">
+  <%= render "home/hotpost", post: post %>
   <div class="i">
-    <div class="s">
-      
-    </div>
-    <div class="t">
-      <%= link_to post do %>
-        <h2>
-          <%= post.title %>
-        </h2>
-      <% end %>
-    </div>
+    <%= image_tag "https://picsum.photos/seed/#{post.id + post.title.length}/#{rand(400..800)}/#{rand(400..800)}" %>
   </div>
   <div class="u">
     <%= post.body %>
+  </div>
+  <div class="ci">
+    <p>
+      all <%= post.comments.length%> comments
+    </p>
+  </div>
+  <div class="cs">
+    <% post.comments.each do |comment| %>
+      <div class="c">
+        <div class="m">
+          <div class="a">
+            <p>
+              <%= link_to "#{comment.author.username}", comment.author %> 
+            </p>
+            <p>
+              <%=time_ago_in_words(post.created_at) %> ago
+            </p>
+          </div>
+        </div>
+        <div class="b">
+          <div class="md">
+            <p>
+              <%= comment.comment_text %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

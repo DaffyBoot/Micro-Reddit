@@ -26,6 +26,7 @@ body{
 .login{
 	position: absolute;
 	right: 0px;
+	top: 0px;
 	display: flex;
 	width: fit-content;
 	a{
@@ -52,6 +53,9 @@ body{
 	width: calc(100% - 40px);
 	margin-bottom: 25px;
 	margin-left: 20px;
+	a{
+		color: $white
+	}
 }
 
 .links{
@@ -71,103 +75,90 @@ body{
 			color: $white;
   		}
   	}
-  	.l{
-  		float: left;
-  		width: 100%;
-  		margin-bottom: 16px;
-  		.uv{
-  			display: flex;
-  			float: left;
-			width: 60px;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			color: #c6c6c6;
-			font-weight: bold;
-			font-size: small;
-  		}
-  		.i{
-  			width: 80px;
-			max-height: 80px;
-			float: left;
-			text-align: center;
-			position: relative;
-			a{
-				color: $white;
-				text-decoration: none;
-				img{
-					width: auto;
-					height: auto;
-					max-height: 80px;
-					max-width: 80px;
-				}
-			}
-  		}
-  		.e{
-  			float: left;
-  			width: calc(100% - 148px);
-  			margin-left: 8px;
-  			.t a{
-  				font-size: 0.8rem;
-  				overflow-wrap: anywhere;
-  				width: fit-content;
-  				h2{
-  					color: white;
-  				}
-  			}
-  			.m{
-  				float: left;
-				width: 100%;
-				color: $white;
-				font-size: x-small;
-				margin-top: 2px;
-				p{
-					float: inherit;
-					overflow-wrap: anywhere;
-					a{ 
-						padding: 0;
-						color: white;
-						font-weight: bold;
-					}
-				}
-				.ml{
-					float: left;
-					width: 100%;
-					margin-top: 1px;
-					a{
-						padding: 0;
-						color: white;
-						font-weight: bold;
-						margin: 0px 15px 0px 0px;
-					}
-				}
-  			}
-  		}
-  	}
 
 }
 
+
 .post{
+	float: left;
+	width: 100%;
+	margin-bottom: 16px;
+	.uv{
+		display: flex;
+		float: left;
+		width: 60px;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		color: #c6c6c6;
+		font-weight: bold;
+		font-size: small;
+	}
+	.i{
+		width: 80px;
+		max-height: 80px;
+		float: left;
+		text-align: center;
+		position: relative;
+		a{
+			color: $white;
+			text-decoration: none;
+			img{
+				width: auto;
+				height: auto;
+				max-height: 80px;
+				max-width: 80px;
+			}
+		}
+	}
+	.e{
+		float: left;
+		width: calc(100% - 148px);
+		margin-left: 8px;
+		.t a{
+			font-size: 0.8rem;
+			overflow-wrap: anywhere;
+			width: fit-content;
+			h2{
+				color: white;
+			}
+		}
+		.m{
+			float: left;
+			width: 100%;
+			color: $white;
+			font-size: x-small;
+			margin-top: 2px;
+			p{
+				float: inherit;
+				overflow-wrap: anywhere;
+				a{ 
+					padding: 0;
+					color: white;
+					font-weight: bold;
+				}
+			}
+			.ml{
+				float: left;
+				width: 100%;
+				margin-top: 1px;
+				a{
+					padding: 0;
+					color: white;
+					font-weight: bold;
+					margin: 0px 15px 0px 0px;
+				}
+			}
+		}
+	}
+}
+
+.posts{
 	min-height: 100vh;
 	width: 100%;
 	.i{
-		float: left;
-		width: 100%;
-		.s{
-			width: 100%;
-		}
-		.t{
-			float: left;
-			width: calc(100% - 60px);
-			a{
-				float:left;
-  				font-size: 0.666rem;
-  				width: fit-content;
-  				h2{
-  					color: white;
-  				}
-  			}	
-		}
+		padding-left: 60px;
+		max-width: 100%;
 	}
 	.u{
 		background: #0a0a0a;
@@ -182,5 +173,54 @@ body{
 		float: left;
 		width: calc(100% - 100px);
 		color: white;
+	}
+	.ci{
+		float: left;
+		width: calc(100% - 30px);
+		margin: 10px 0 10px 30px
+	}
+	.cs{
+		float: left;
+		width: 100%;
+		.c{
+			background: $black;
+			padding-left: 30px;
+			width: auto;
+			overflow: hidden;
+			font-size: 0.83rem;
+			clear: left;
+			.m{
+				float: left;
+				p{
+					float: left;
+					padding-right: 8px;
+					a{
+						padding: 0;
+						color: white;
+						font-weight: bold;
+						margin-left: 10px;
+					}
+				}
+			}
+			.b{
+				padding-top: 0;
+				padding-bottom: 13px;
+				float: left;
+				width: 100%;
+				.md{
+					max-width: 60em;
+					font-size: 1em;
+					font-weight: 400;
+					word-wrap: break-word;
+					p{
+						line-height: 1.4em;
+						margin-top: 0.35em;
+						margin-bottom: 0.35em;
+						color: white;
+					}
+				}
+			}
+
+		}
 	}
 }
